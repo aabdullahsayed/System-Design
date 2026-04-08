@@ -1,3 +1,3 @@
 ## Single server setup
 
-[!Single Server](single-server.svg)
+![Single Server](single-server.svg)
