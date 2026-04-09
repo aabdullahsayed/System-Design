@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+
+  <text x="480" y="45" text-anchor="middle" font-size="28" font-weight="bold" fill="#1e1e1e">Phase 3: Horizontal Scaling &amp; Load Balancing</text>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" stroke-linecap="round" fill="none">
+    <g fill="#b2f2bb">
+       <rect x="40" y="240" width="140" height="160" rx="10" stroke-width="2" transform="rotate(-1 110 320)"/>
+    </g>
+    <text x="110" y="325" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e1e1e">Users</text>
+  </g>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" stroke-linecap="round" fill="none">
+    <g fill="#fcc419"> <rect x="300" y="200" width="120" height="240" rx="15" stroke-width="2.5" transform="rotate(0.5 360 320)"/>
+    </g>
+    <text x="360" y="310" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e1e1e">Load</text>
+    <text x="360" y="335" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e1e1e">Balancer</text>
+  </g>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" stroke-linecap="round" fill="none">
+    <g fill="#a5d8ff">
+       <rect x="580" y="140" width="180" height="80" rx="8" stroke-width="2" transform="rotate(1 670 180)"/>
+       <rect x="580" y="270" width="180" height="80" rx="8" stroke-width="2" transform="rotate(-1 670 310)"/>
+       <rect x="580" y="400" width="180" height="80" rx="8" stroke-width="2" transform="rotate(0.5 670 440)"/>
+    </g>
+    
+    <text x="670" y="185" text-anchor="middle" font-size="16" font-weight="bold">Server 1</text>
+    <text x="670" y="315" text-anchor="middle" font-size="16" font-weight="bold">Server 2</text>
+    <text x="670" y="445" text-anchor="middle" font-size="16" font-weight="bold">Server 3</text>
+  </g>
+
+  <g filter="url(#rough)" stroke="#495057" stroke-width="2" fill="none">
+    <path d="M 180 320 L 300 320" stroke-width="3" stroke="#3b82f6"/>
+    <path d="M 285 310 L 300 320 L 285 330" stroke="#3b82f6"/>
+
+    <path d="M 420 280 L 575 180" stroke-dasharray="5,5"/>
+    <path d="M 420 320 L 575 310" />
+    <path d="M 420 360 L 575 440" stroke-dasharray="5,5"/>
+  </g>
+
+  <g transform="translate(600, 520)" filter="url(#rough)">
+    <path d="M 0 0 Q 50 10, 100 -20" stroke="#c92a2a" stroke-width="2" fill="none"/>
+    <text x="110" y="-15" font-size="14" fill="#c92a2a" font-weight="bold">If one dies, others live!</text>
+  </g>
+
+  <text x="480" y="580" text-anchor="middle" font-size="16" font-style="italic" fill="#adb5bd">"Don't put all your eggs in one CPU."</text>
+</svg>

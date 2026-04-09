@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', sans-serif;">
+  <defs>
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+  <text x="480" y="45" text-anchor="middle" font-size="28" font-weight="bold" fill="#1e1e1e">Authorization Sequence (Timeline)</text>
+
+  <g stroke="#adb5bd" stroke-width="2" stroke-dasharray="8,4" filter="url(#rough)">
+    <line x1="150" y1="120" x2="150" y2="550" />
+    <line x1="400" y1="120" x2="400" y2="550" />
+    <line x1="650" y1="120" x2="650" y2="550" />
+    <line x1="850" y1="120" x2="850" y2="550" />
+  </g>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" stroke-width="2">
+    <rect x="100" y="80" width="100" height="40" rx="5" fill="#b2f2bb" />
+    <text x="150" y="105" text-anchor="middle" font-weight="bold">User</text>
+
+    <rect x="350" y="80" width="100" height="40" rx="5" fill="#eebefa" />
+    <text x="400" y="105" text-anchor="middle" font-weight="bold">IdP (Auth)</text>
+
+    <rect x="600" y="80" width="100" height="40" rx="5" fill="#a5d8ff" />
+    <text x="650" y="105" text-anchor="middle" font-weight="bold">API Server</text>
+
+    <rect x="800" y="80" width="100" height="40" rx="5" fill="#ffd8a8" />
+    <text x="850" y="105" text-anchor="middle" font-weight="bold">DB</text>
+  </g>
+
+  <g stroke-width="2" marker-end="url(#arrow)" fill="none" filter="url(#rough)">
+    
+    <path d="M 150 160 L 390 160" stroke="#495057" />
+    <text x="275" y="150" text-anchor="middle" font-size="12">1. Login (User/Pass)</text>
+    <path d="M 380 155 L 395 160 L 380 165" fill="#495057" stroke="none"/>
+
+    <path d="M 400 200 L 160 200" stroke="#3b82f6" stroke-dasharray="5,3" />
+    <text x="275" y="190" text-anchor="middle" font-size="12" fill="#3b82f6">2. Returns JWT (Roles inside)</text>
+    <path d="M 170 195 L 155 200 L 170 205" fill="#3b82f6" stroke="none"/>
+
+    <path d="M 150 280 L 640 280" stroke="#c92a2a" stroke-width="3" />
+    <text x="400" y="270" text-anchor="middle" font-size="13" font-weight="bold" fill="#c92a2a">3. GET /orders (Header: Bearer JWT)</text>
+    <path d="M 630 275 L 645 280 L 630 285" fill="#c92a2a" stroke="none"/>
+
+    <path d="M 650 310 Q 700 325, 650 340" stroke="#1e1e1e" />
+    <text x="730" y="330" font-size="12" font-weight="bold">4. Validate Sig &amp; Role</text>
+
+    <path d="M 650 380 L 840 380" stroke="#087f5b" />
+    <text x="745" y="370" text-anchor="middle" font-size="12">5. SQL Query</text>
+    <path d="M 830 375 L 845 380 L 830 385" fill="#087f5b" stroke="none"/>
+
+    <path d="M 850 420 L 660 420" stroke="#087f5b" stroke-dasharray="5,3" />
+    <path d="M 670 415 L 655 420 L 670 425" fill="#087f5b" stroke="none"/>
+
+    <path d="M 650 480 L 160 480" stroke="#087f5b" stroke-width="3" />
+    <text x="400" y="470" text-anchor="middle" font-size="13" font-weight="bold" fill="#087f5b">7. Response: 200 OK (JSON Data)</text>
+    <path d="M 170 475 L 155 480 L 170 485" fill="#087f5b" stroke="none"/>
+
+  </g>
+
+  <text x="480" y="600" text-anchor="middle" font-size="16" font-style="italic" fill="#adb5bd">"Tokens are like movie tickets: buy once, show it at the door every time."</text>
+</svg>

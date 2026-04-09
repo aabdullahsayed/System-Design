@@ -1,3 +1,10 @@
-## Single server setup
+# Single Server Setup
 
-![Single Server](single-server.svg)
+![Single Server Setup](./Single_Server_Setup.svg)
+
+---
+
+## 📝 Notes
+
+Add your notes here.
+

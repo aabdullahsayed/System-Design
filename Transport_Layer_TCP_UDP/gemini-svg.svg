@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', sans-serif;">
+  <defs>
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+  
+  <text x="450" y="50" text-anchor="middle" font-size="28" font-weight="bold" fill="#1e1e1e">TCP vs UDP: The Transport Layer</text>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none">
+    <rect x="50" y="100" width="380" height="380" rx="15" stroke-width="2" fill="#e7f5ff"/>
+    <text x="240" y="140" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e40af">TCP (Reliable)</text>
+    
+    <g transform="translate(80, 180)">
+      <rect x="0" y="0" width="320" height="80" rx="8" fill="#ffffff" stroke-dasharray="5,5"/>
+      <text x="160" y="30" text-anchor="middle" font-size="14" font-weight="bold">Three-Way Handshake</text>
+      <text x="160" y="55" text-anchor="middle" font-size="12">SYN → SYN-ACK → ACK</text>
+    </g>
+
+    <text x="240" y="300" text-anchor="middle" font-size="14">✅ Retransmits lost packets</text>
+    <text x="240" y="330" text-anchor="middle" font-size="14">✅ Guarantees order</text>
+    <text x="240" y="360" text-anchor="middle" font-size="14">❌ Slower (Overhead)</text>
+
+    <rect x="140" y="400" width="200" height="40" rx="5" fill="#1e40af" opacity="0.1"/>
+    <text x="240" y="425" text-anchor="middle" font-weight="bold" fill="#1e40af">Use for: HTTP, Email, DB</text>
+  </g>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none">
+    <rect x="470" y="100" width="380" height="380" rx="15" stroke-width="2" fill="#fff5f5"/>
+    <text x="660" y="140" text-anchor="middle" font-size="22" font-weight="bold" fill="#c92a2a">UDP (Fast)</text>
+    
+    <g transform="translate(500, 180)">
+      <rect x="0" y="0" width="320" height="80" rx="8" fill="#ffffff" stroke-dasharray="5,5"/>
+      <text x="160" y="45" text-anchor="middle" font-size="16" font-weight="bold">"Fire and Forget"</text>
+    </g>
+
+    <text x="660" y="300" text-anchor="middle" font-size="14">❌ Packets can be lost</text>
+    <text x="660" y="330" text-anchor="middle" font-size="14">❌ No order guarantee</text>
+    <text x="660" y="360" text-anchor="middle" font-size="14">✅ Extremely Fast</text>
+
+    <rect x="560" y="400" width="200" height="40" rx="5" fill="#c92a2a" opacity="0.1"/>
+    <text x="660" y="425" text-anchor="middle" font-weight="bold" fill="#c92a2a">Use for: Video, Gaming, VoIP</text>
+  </g>
+
+  <text x="450" y="520" text-anchor="middle" font-size="16" font-style="italic" fill="#adb5bd">"TCP is a phone call (Hello? Hi! Can you hear me?). UDP is a megaphone."</text>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 550" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+  
+  <text x="480" y="45" text-anchor="middle" font-size="28" font-weight="bold" fill="#1e1e1e">API Security: Defense in Depth</text>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round">
+    <rect x="30" y="120" width="120" height="60" rx="8" stroke-width="2" fill="#ffc9c9" transform="rotate(-2 90 150)"/>
+    <text x="90" y="155" text-anchor="middle" font-weight="bold" fill="#c92a2a">Attacker / Bots</text>
+    
+    <rect x="30" y="280" width="120" height="60" rx="8" stroke-width="2" fill="#d3f9d8" transform="rotate(1 90 310)"/>
+    <text x="90" y="315" text-anchor="middle" font-weight="bold" fill="#087f5b">Legit User</text>
+  </g>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round">
+    <rect x="220" y="90" width="120" height="340" rx="10" stroke-width="2" fill="#fff3bf" transform="rotate(0.5 280 260)"/>
+    <text x="280" y="240" text-anchor="middle" font-size="18" font-weight="bold" fill="#f59f00" transform="rotate(-90 280 240)">1. Rate Limiting</text>
+    
+    <path d="M 160 140 L 210 140 M 210 130 L 200 150 M 210 150 L 200 130" stroke="#c92a2a" stroke-width="3"/>
+    <path d="M 160 155 L 210 155 M 210 145 L 200 165 M 210 165 L 200 145" stroke="#c92a2a" stroke-width="3"/>
+    <text x="185" y="130" text-anchor="middle" font-size="12" font-weight="bold" fill="#c92a2a">429: Blocked</text>
+
+    <path d="M 160 310 L 400 310" stroke="#087f5b" stroke-width="3" stroke-dasharray="8,4"/>
+  </g>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round">
+    <rect x="420" y="160" width="140" height="200" rx="10" stroke-width="2" fill="#a5d8ff" transform="rotate(-1 490 260)"/>
+    <text x="490" y="195" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e40af">2. AuthN</text>
+    <text x="490" y="220" text-anchor="middle" font-size="12" fill="#495057">"Who are you?"</text>
+    
+    <rect x="435" y="240" width="110" height="60" rx="5" fill="#ffffff" stroke-width="1.5"/>
+    <text x="490" y="265" text-anchor="middle" font-size="12" font-weight="bold">Verify JWT</text>
+    <text x="490" y="285" text-anchor="middle" font-size="10" fill="#495057">Signature Check</text>
+    
+    <path d="M 570 310 L 650 310" stroke="#087f5b" stroke-width="3" stroke-dasharray="8,4"/>
+  </g>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round">
+    <rect x="670" y="120" width="140" height="300" rx="10" stroke-width="2" fill="#eebefa" transform="rotate(1 740 270)"/>
+    <text x="740" y="160" text-anchor="middle" font-size="18" font-weight="bold" fill="#862e9c">3. AuthZ (RBAC)</text>
+    <text x="740" y="185" text-anchor="middle" font-size="12" fill="#495057">"What can you do?"</text>
+
+    <rect x="685" y="210" width="110" height="40" rx="5" fill="#ffffff" stroke-width="1.5"/>
+    <text x="740" y="235" text-anchor="middle" font-size="12" font-weight="bold" fill="#862e9c">Role: Admin</text>
+    <path d="M 800 230 Q 860 230, 860 170" stroke="#862e9c" stroke-width="2" stroke-dasharray="5,5"/>
+    
+    <rect x="685" y="340" width="110" height="40" rx="5" fill="#ffffff" stroke-width="1.5"/>
+    <text x="740" y="365" text-anchor="middle" font-size="12" font-weight="bold" fill="#087f5b">Role: Viewer</text>
+    <path d="M 800 360 L 860 360" stroke="#087f5b" stroke-width="2" stroke-dasharray="5,5"/>
+  </g>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round">
+    <rect x="850" y="140" width="80" height="60" rx="5" stroke-width="2" fill="#ffec99"/>
+    <text x="890" y="175" text-anchor="middle" font-size="12" font-weight="bold">System</text>
+    
+    <ellipse cx="890" cy="340" rx="35" ry="12" fill="#ffffff" stroke-width="2"/>
+    <rect x="855" y="340" width="70" height="40" fill="#ffffff" stroke-width="0"/>
+    <line x1="855" y1="340" x2="855" y2="380" stroke-width="2"/>
+    <line x1="925" y1="340" x2="925" y2="380" stroke-width="2"/>
+    <ellipse cx="890" cy="380" rx="35" ry="12" fill="#ffffff" stroke-width="2"/>
+    <text x="890" y="365" text-anchor="middle" font-size="12" font-weight="bold">DB</text>
+  </g>
+
+  <text x="180" y="295" font-size="12" fill="#087f5b" transform="rotate(-10 180 295)">10 req/min</text>
+  <text x="360" y="295" font-size="12" fill="#087f5b" transform="rotate(-5 360 295)">Bearer {JWT}</text>
+  <text x="600" y="295" font-size="12" fill="#087f5b" transform="rotate(-5 600 295)">Valid ID</text>
+
+  <line x1="380" y1="100" x2="380" y2="450" stroke="#dee2e6" stroke-width="2" stroke-dasharray="10,5" filter="url(#rough)"/>
+  <line x1="610" y1="100" x2="610" y2="450" stroke="#dee2e6" stroke-width="2" stroke-dasharray="10,5" filter="url(#rough)"/>
+
+  <text x="480" y="520" text-anchor="middle" font-size="16" font-style="italic" fill="#adb5bd">"API Security is like an onion. If you skip a layer, you're going to cry."</text>
+</svg>
