@@ -1,6 +1,6 @@
 # API Protocols
 
-![API Protocols](protocols.svg)
+![API Protocols](protocol.svg)
 
 ---
 

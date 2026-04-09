@@ -1,6 +1,8 @@
 # Security
 
-![Security](./Security.svg)
+![Security](./security.svg)
+
+![Web Security](./web_security.svg)
 
 ---
 

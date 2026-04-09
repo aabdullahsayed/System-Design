@@ -1,6 +1,6 @@
 # Authorization
 
-![Authorization](./Authorization.svg)
+![Authorization](./author.svg)
 
 ---
 

@@ -1,10 +1,6 @@
 # Authentication
 
-![Authentication](./Authentication.svg)
+![Authentication](./authentication.svg)
 
 ---
-
-## 📝 Notes
-
-Add your notes here.
 

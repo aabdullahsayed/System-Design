@@ -1,6 +1,6 @@
 # RESTful APIs
 
-![RESTful APIs](./RESTful_APIs.svg)
+![RESTful APIs](./rest.svg)
 
 ---
 

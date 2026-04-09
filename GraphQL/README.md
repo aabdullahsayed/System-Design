@@ -1,6 +1,6 @@
 # GraphQL
 
-![GraphQL](./GraphQL.svg)
+![GraphQL](./graph.svg)
 
 ---
 

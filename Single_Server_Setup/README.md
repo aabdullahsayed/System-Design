@@ -1,7 +1,7 @@
 # Single Server Setup
 
-![Single Server Setup](./Single_Server_Setup.svg)
-
+![Single Server Setup](./single-server.svg)
+![Security](./tiered.svg)
 ---
 
 ## 📝 Notes

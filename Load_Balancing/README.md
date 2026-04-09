@@ -1,6 +1,6 @@
 # Load Balancing
 
-![Load Balancing](./Load_Balancing.svg)
+![Load Balancing](./load.svg)
 
 ---
 

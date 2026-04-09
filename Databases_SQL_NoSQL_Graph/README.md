@@ -1,6 +1,6 @@
 # Databases SQL NoSQL Graph
 
-![Databases SQL NoSQL Graph](./Databases_SQL_NoSQL_Graph.svg)
+![Databases SQL NoSQL Graph](./nosql.svg)
 
 ---
 
