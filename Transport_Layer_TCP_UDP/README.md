@@ -1,10 +1,5 @@
 # Transport Layer TCP UDP
 
-![Transport Layer TCP UDP](./Transport_Layer_TCP_UDP.svg)
+![Transport Layer TCP UDP](./tcp_udp.svg)
 
----
-
-## 📝 Notes
-
-Add your notes here.
-
+--
