@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <!-- Background Dot Grid -->
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <!-- Sketchy Whiteboard Filter -->
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- Grid Background -->
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+  
+  <!-- Title -->
+  <text x="480" y="55" text-anchor="middle" font-size="28" font-weight="bold" fill="#1e1e1e">Bearer Token Authentication</text>
+
+  <!-- ================= SHAPES (With Hand-Drawn Filter) ================= -->
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- 1. Client Box -->
+    <rect x="60" y="160" width="160" height="100" rx="12" fill="#b2f2bb" transform="rotate(-2 140 210)"/>
+    
+    <!-- 2. API Box -->
+    <rect x="400" y="160" width="160" height="100" rx="12" fill="#a5d8ff" transform="rotate(1 480 210)"/>
+    
+    <!-- 3. Success Box -->
+    <rect x="740" y="160" width="160" height="100" rx="12" fill="#d3f9d8" transform="rotate(-1 820 210)"/>
+
+    <!-- Token Representation (Floating above arrow) -->
+    <rect x="255" y="120" width="110" height="40" rx="6" fill="#ffec99" stroke-dasharray="6,4" transform="rotate(2 310 140)"/>
+
+    <!-- Arrow: Client -> API -->
+    <path d="M 230 210 L 380 210" stroke="#3b82f6" stroke-width="3.5" />
+    <path d="M 360 198 L 385 210 L 360 222" stroke="#3b82f6" stroke-width="3.5" fill="#3b82f6"/>
+
+    <!-- Arrow: API -> Success -->
+    <path d="M 570 210 L 720 210" stroke="#087f5b" stroke-width="3.5" />
+    <path d="M 700 198 L 725 210 L 700 222" stroke="#087f5b" stroke-width="3.5" fill="#087f5b"/>
+  </g>
+
+  <!-- ================= SHARP TEXT ================= -->
+  
+  <!-- Client -->
+  <text x="140" y="218" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e1e1e">Client</text>
+
+  <!-- Token -->
+  <text x="310" y="146" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e1e1e">Token</text>
+  <text x="310" y="240" text-anchor="middle" font-size="14" fill="#495057">Authorization: Bearer</text>
+
+  <!-- API -->
+  <text x="480" y="218" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e1e1e">API</text>
+
+  <!-- Success -->
+  <text x="820" y="218" text-anchor="middle" font-size="24" font-weight="bold" fill="#087f5b">Success</text>
+  <text x="645" y="195" text-anchor="middle" font-size="14" font-weight="bold" fill="#087f5b">Valid</text>
+
+</svg>
