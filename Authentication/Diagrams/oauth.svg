@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <!-- Background Dot Grid -->
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <!-- Sketchy Whiteboard Filter (Applied to shapes, NOT text) -->
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- Grid Background -->
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+  
+  <!-- Title -->
+  <text x="480" y="45" text-anchor="middle" font-size="28" font-weight="bold" fill="#1e1e1e">OAuth2 + JWT (Stateless Authentication)</text>
+
+  <!-- ================= SHAPES (With Hand-Drawn Filter) ================= -->
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- 1. Client App -->
+    <rect x="80" y="240" width="160" height="140" rx="12" fill="#b2f2bb" transform="rotate(-1 160 310)"/>
+    
+    <!-- 2. OAuth Provider (Google/Github) -->
+    <rect x="580" y="100" width="240" height="120" rx="12" fill="#eebefa" transform="rotate(1 700 160)"/>
+
+    <!-- 3. Your API Server -->
+    <rect x="580" y="380" width="220" height="140" rx="12" fill="#a5d8ff" transform="rotate(-0.5 690 450)"/>
+
+    <!-- 4. Stateless Callout Note (Sticky Note) -->
+    <rect x="550" y="540" width="300" height="70" rx="5" fill="#fff9db" stroke-dasharray="6,4" transform="rotate(-2 700 575)"/>
+
+    <!-- 5. Database (Crossed Out) -->
+    <ellipse cx="890" cy="420" rx="35" ry="12" fill="#ffffff" stroke-width="2"/>
+    <rect x="855" y="420" width="70" height="50" fill="#ffffff" stroke-width="0"/>
+    <line x1="855" y1="420" x2="855" y2="470" stroke-width="2"/>
+    <line x1="925" y1="420" x2="925" y2="470" stroke-width="2"/>
+    <ellipse cx="890" cy="470" rx="35" ry="12" fill="#ffffff" stroke-width="2"/>
+    <!-- The Big Red X -->
+    <path d="M 845 410 L 935 480 M 935 410 L 845 480" stroke="#c92a2a" stroke-width="4"/>
+
+    <!-- ================= ARROWS ================= -->
+    <!-- Arrow 1: Client -> OAuth -->
+    <path d="M 180 230 Q 350 150, 560 150" stroke="#862e9c" stroke-width="3.5" />
+    <path d="M 540 138 L 565 150 L 540 162" stroke="#862e9c" stroke-width="3.5" fill="#862e9c"/>
+
+    <!-- Arrow 2: OAuth -> Client -->
+    <path d="M 570 190 Q 400 240, 250 260" stroke="#862e9c" stroke-width="3.5" stroke-dasharray="8,5" />
+    <path d="M 275 248 L 245 260 L 275 272" stroke="#862e9c" stroke-width="3.5" fill="#862e9c"/>
+
+    <!-- Arrow 3: Client -> API -->
+    <path d="M 250 350 Q 400 420, 560 420" stroke="#3b82f6" stroke-width="3.5" />
+    <path d="M 540 408 L 565 420 L 540 432" stroke="#3b82f6" stroke-width="3.5" fill="#3b82f6"/>
+
+    <!-- Arrow 4: API -> Client -->
+    <path d="M 570 470 Q 380 490, 180 390" stroke="#087f5b" stroke-width="3.5" stroke-dasharray="8,5" />
+    <path d="M 205 380 L 175 388 L 200 405" stroke="#087f5b" stroke-width="3.5" fill="#087f5b"/>
+  </g>
+
+  <!-- ================= SHARP TEXT (No Filter for Maximum Readability) ================= -->
+  
+  <!-- Client Text -->
+  <text x="160" y="300" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e1e1e">Your App</text>
+  <text x="160" y="330" text-anchor="middle" font-size="14" fill="#495057">(Frontend)</text>
+
+  <!-- OAuth Provider Text -->
+  <text x="700" y="145" text-anchor="middle" font-size="22" font-weight="bold" fill="#862e9c">OAuth Provider</text>
+  <text x="700" y="170" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057">Google / GitHub / Meta</text>
+  <text x="700" y="195" text-anchor="middle" font-size="12" fill="#495057">(Handles actual login)</text>
+
+  <!-- API Server Text -->
+  <text x="690" y="440" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e40af">Your API Server</text>
+  <text x="690" y="470" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e1e1e">Verifies Signature Locally</text>
+  <text x="690" y="490" text-anchor="middle" font-size="12" fill="#495057">(Using Provider's Public Key)</text>
+
+  <!-- Database Text -->
+  <text x="890" y="505" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">Session DB</text>
+
+  <!-- Stateless Callout Text -->
+  <text x="700" y="575" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e1e1e">⚡ STATELESS MAGIC ⚡</text>
+  <text x="700" y="595" text-anchor="middle" font-size="14" fill="#495057">No DB lookup! Token validates itself.</text>
+
+  <!-- Path Labels -->
+  <text x="350" y="145" text-anchor="middle" font-size="14" font-weight="bold" fill="#862e9c">1. "Login with Google"</text>
+  <text x="420" y="275" text-anchor="middle" font-size="14" font-weight="bold" fill="#862e9c">2. Returns JWT (Access Token)</text>
+  
+  <text x="380" y="405" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b82f6">3. API Req + Bearer JWT</text>
+  <text x="380" y="500" text-anchor="middle" font-size="14" font-weight="bold" fill="#087f5b">4. 200 OK (Protected Data)</text>
+
+  <!-- Humorous Footer -->
+  <text x="480" y="635" text-anchor="middle" font-size="16" font-style="italic" fill="#adb5bd">"JWTs: Because asking the database 'does this user exist?' 10,000 times a second gets expensive."</text>
+
+</svg>

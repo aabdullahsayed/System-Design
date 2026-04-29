@@ -44,3 +44,11 @@ base64 encoded: Simple encoding that's easily reversible
 
 
 Bearer<access_token>
+
+## OAuth2 + JWTs
+
+Used in login with Google, Github, Facebook
+
+JWTs are stateless -> You do not need to store sessions
+
+![OAuth2](./Diagrams/oauth.svg)
