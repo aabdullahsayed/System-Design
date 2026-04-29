@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 700" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <!-- Background Dot Grid -->
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <!-- Sketchy Whiteboard Filter -->
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+  <text x="480" y="45" text-anchor="middle" font-size="28" font-weight="bold" fill="#1e1e1e">Access &amp; Refresh Token Lifecycle</text>
+
+  <!-- ================= SHAPES ================= -->
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- Client Box -->
+    <rect x="60" y="220" width="160" height="200" rx="12" fill="#b2f2bb" transform="rotate(-1 140 320)"/>
+    
+    <!-- Resource API Box -->
+    <rect x="720" y="120" width="180" height="140" rx="12" fill="#a5d8ff" transform="rotate(1 810 190)"/>
+    
+    <!-- Auth Server Box -->
+    <rect x="720" y="400" width="180" height="160" rx="12" fill="#eebefa" transform="rotate(-0.5 810 480)"/>
+
+    <!-- DB under Auth -->
+    <ellipse cx="810" cy="580" rx="40" ry="12" fill="#ffd8a8" stroke-width="2"/>
+    <rect x="770" y="580" width="80" height="40" fill="#ffd8a8" stroke-width="0"/>
+    <line x1="770" y1="580" x2="770" y2="620" stroke-width="2"/>
+    <line x1="850" y1="580" x2="850" y2="620" stroke-width="2"/>
+    <ellipse cx="810" cy="620" rx="40" ry="12" fill="#ffd8a8" stroke-width="2"/>
+  </g>
+
+  <!-- ================= TEXT LABELS ================= -->
+  <text x="140" y="320" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e1e1e">Client</text>
+  
+  <text x="810" y="180" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e1e1e">Resource API</text>
+  <text x="810" y="210" text-anchor="middle" font-size="14" fill="#495057">(Protected Data)</text>
+
+  <text x="810" y="460" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e1e1e">Auth Server</text>
+  <text x="810" y="490" text-anchor="middle" font-size="14" fill="#495057">(Token Issuer)</text>
+  
+  <text x="810" y="605" text-anchor="middle" font-size="12" font-weight="bold">Valid Tokens DB</text>
+
+  <!-- ================= SEQUENCE FLOW ================= -->
+
+  <!-- Phase 1: Normal Request -->
+  <g filter="url(#rough)" stroke="#3b82f6" fill="none" stroke-width="3.5">
+    <path d="M 230 180 L 710 180" stroke-dasharray="10,6" />
+    <path d="M 690 168 L 715 180 L 690 192" fill="#3b82f6"/>
+  </g>
+  <text x="450" y="145" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b82f6">1. Request + Access Token (Valid)</text>
+  <text x="450" y="165" text-anchor="middle" font-size="12" fill="#495057">Expires in 15 mins</text>
+
+  <!-- Phase 2: Token Expires -->
+  <g filter="url(#rough)" stroke="#c92a2a" fill="none" stroke-width="3.5">
+    <path d="M 230 250 L 710 250" />
+    <path d="M 690 238 L 715 250 L 690 262" fill="#c92a2a"/>
+    <path d="M 710 300 L 230 300" stroke-dasharray="10,6" />
+    <path d="M 250 288 L 225 300 L 250 312" fill="#c92a2a"/>
+  </g>
+  <text x="450" y="240" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">2. Request + Access Token (Expired!)</text>
+  <text x="450" y="290" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">3. 401 Unauthorized</text>
+
+  <!-- Phase 3: The Refresh -->
+  <g filter="url(#rough)" stroke="#862e9c" fill="none" stroke-width="3.5">
+    <path d="M 230 420 L 710 420" />
+    <path d="M 690 408 L 715 420 L 690 432" fill="#862e9c"/>
+    <path d="M 710 500 L 230 500" stroke-dasharray="10,6"/>
+    <path d="M 250 488 L 225 500 L 250 512" fill="#862e9c"/>
+  </g>
+  <text x="450" y="405" text-anchor="middle" font-size="14" font-weight="bold" fill="#862e9c">4. POST /refresh + Refresh Token</text>
+  <text x="450" y="490" text-anchor="middle" font-size="14" font-weight="bold" fill="#862e9c">5. Returns NEW Access Token</text>
+
+  <!-- Explanation Boxes floating over lines -->
+  <rect x="360" y="435" width="180" height="24" rx="4" fill="#ffffff" stroke-width="1.5" stroke="#862e9c" filter="url(#rough)"/>
+  <text x="450" y="452" text-anchor="middle" font-size="12" font-style="italic">"Hey Auth Server, I need a new keycard."</text>
+
+  <!-- Humorous Footer -->
+  <text x="480" y="660" text-anchor="middle" font-size="16" font-style="italic" fill="#adb5bd">"Access tokens are hotel keycards. Refresh tokens are the front desk asking for your ID to make a new one."</text>
+
+</svg>

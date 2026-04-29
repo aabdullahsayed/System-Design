@@ -52,3 +52,11 @@ Used in login with Google, Github, Facebook
 JWTs are stateless -> You do not need to store sessions
 
 ![OAuth2](./Diagrams/oauth.svg)
+
+
+## Access vs Refresh Tokens
+
+Access Tokens - Expires fast (used for API calls)
+Refresh Tokens - Lives Longer
+
+![Tokens](./Diagrams/token.svg)
