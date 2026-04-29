@@ -40,7 +40,7 @@ base64 encoded: Simple encoding that's easily reversible
 ## Bearer Token Authentication
 
 
-![Bearer Token Authentication](/Diagrams/bearer.svg)
+![Bearer Token Authentication](./Diagrams/bearer.svg)
 
 
 Bearer<access_token>
