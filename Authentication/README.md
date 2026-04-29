@@ -60,3 +60,10 @@ Access Tokens - Expires fast (used for API calls)
 Refresh Tokens - Lives Longer
 
 ![Tokens](./Diagrams/token.svg)
+
+
+## SSO + Identity Protocols
+
+Identity Protocols Define how apps securely exchange user info
+
+![sso](./Diagrams/sso.svg)
