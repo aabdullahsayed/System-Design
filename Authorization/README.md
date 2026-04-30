@@ -37,4 +37,4 @@ ALLOW ACCESS IF:
 ```
 
 
-![ABAC] (./Diagrams/rbac.svg)
+![ABAC](./Diagrams/abac.svg)
