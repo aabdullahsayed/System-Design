@@ -31,3 +31,7 @@ A full-blown DDoS attack can send 10,000 requests a second, overwhelming your da
 ![CORS](./Diagrams/cors.svg)
 
 
+
+### CSRF (Cross-Site Request Forgery)
+
+![CSRF](./Diagrams/csrf.svg)

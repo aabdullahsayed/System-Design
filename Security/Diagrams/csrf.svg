@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <!-- Background Dot Grid -->
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <!-- Sketchy Whiteboard Filter (Applied to shapes ONLY) -->
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- Grid Background -->
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+
+  <!-- Title -->
+  <text x="500" y="50" text-anchor="middle" font-size="30" font-weight="bold" fill="#1e1e1e">CSRF: Cross-Site Request Forgery</text>
+  <text x="500" y="75" text-anchor="middle" font-size="16" fill="#495057">The "Confused Deputy" Attack</text>
+
+  <!-- ================= SHAPES ================= -->
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- Target Server (Top Left) -->
+    <rect x="80" y="140" width="220" height="120" rx="15" fill="#a5d8ff" transform="rotate(-1 190 200)"/>
+    
+    <!-- Evil Server (Top Right) -->
+    <rect x="700" y="140" width="220" height="120" rx="15" fill="#ffc9c9" transform="rotate(1 810 200)"/>
+    
+    <!-- User Browser (Bottom Center) -->
+    <rect x="300" y="440" width="400" height="220" rx="15" fill="#f8f9fa" stroke-dasharray="10,5" transform="rotate(0.5 500 550)"/>
+    
+    <!-- Browser Tabs inside Browser -->
+    <rect x="340" y="520" width="140" height="80" rx="8" fill="#d3f9d8" transform="rotate(-1 410 560)"/>
+    <rect x="520" y="520" width="140" height="80" rx="8" fill="#ffe3e3" transform="rotate(1 590 560)"/>
+
+    <!-- The Valid Cookie -->
+    <circle cx="200" cy="560" r="30" fill="#fab005" stroke-width="3"/>
+    <circle cx="190" cy="550" r="4" fill="#1e1e1e" stroke="none"/>
+    <circle cx="210" cy="555" r="5" fill="#1e1e1e" stroke="none"/>
+    <circle cx="195" cy="570" r="6" fill="#1e1e1e" stroke="none"/>
+
+    <!-- ================= ARROWS ================= -->
+    
+    <!-- 1. Login Arrow (Browser -> Bank) -->
+    <path d="M 370 420 Q 200 350, 200 280" stroke="#087f5b" stroke-width="3.5" />
+    <path d="M 188 295 L 200 280 L 212 295" fill="#087f5b" stroke="#087f5b"/>
+
+    <!-- 2. Lure Arrow (Browser -> Evil) -->
+    <path d="M 600 420 Q 750 350, 750 280" stroke="#c92a2a" stroke-width="3.5" />
+    <path d="M 738 295 L 750 280 L 762 295" fill="#c92a2a" stroke="#c92a2a"/>
+
+    <!-- 3. Payload Arrow (Evil -> Browser Tab 2) -->
+    <path d="M 850 280 Q 850 480, 680 540" stroke="#c92a2a" stroke-width="3.5" stroke-dasharray="8,5" />
+    <path d="M 695 530 L 680 540 L 700 552" fill="#c92a2a" stroke="#c92a2a"/>
+
+    <!-- 4. The Forgery Arrow (Browser Tab 2 -> Bank) -->
+    <path d="M 520 540 Q 400 350, 280 250" stroke="#e67700" stroke-width="4" />
+    <path d="M 298 258 L 280 250 L 290 270" fill="#e67700" stroke="#e67700"/>
+
+  </g>
+
+  <!-- ================= SHARP TEXT (No Filter) ================= -->
+
+  <!-- Server Texts -->
+  <text x="190" y="195" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e40af">bank.com</text>
+  <text x="190" y="220" text-anchor="middle" font-size="14" fill="#1e1e1e">(The Target)</text>
+
+  <text x="810" y="195" text-anchor="middle" font-size="22" font-weight="bold" fill="#c92a2a">evil.com</text>
+  <text x="810" y="220" text-anchor="middle" font-size="14" fill="#1e1e1e">(The Attacker)</text>
+
+  <!-- Browser Text -->
+  <text x="500" y="480" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e1e1e">Victim's Web Browser</text>
+
+  <text x="410" y="555" text-anchor="middle" font-size="16" font-weight="bold" fill="#087f5b">Tab 1</text>
+  <text x="410" y="575" text-anchor="middle" font-size="12" fill="#1e1e1e">Logged into Bank</text>
+
+  <text x="590" y="555" text-anchor="middle" font-size="16" font-weight="bold" fill="#c92a2a">Tab 2</text>
+  <text x="590" y="575" text-anchor="middle" font-size="12" fill="#1e1e1e">Browsing Memes</text>
+
+  <text x="200" y="615" text-anchor="middle" font-size="14" font-weight="bold" fill="#e67700">Valid Auth</text>
+  <text x="200" y="630" text-anchor="middle" font-size="14" font-weight="bold" fill="#e67700">Cookie</text>
+
+  <!-- Arrow Labels (With White Backgrounds for readability) -->
+  <rect x="190" y="340" width="160" height="25" fill="#ffffff" stroke="none" opacity="0.9"/>
+  <text x="270" y="358" text-anchor="middle" font-size="14" font-weight="bold" fill="#087f5b">1. Login to Bank</text>
+
+  <rect x="650" y="320" width="180" height="25" fill="#ffffff" stroke="none" opacity="0.9"/>
+  <text x="740" y="338" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">2. Visits bad site</text>
+
+  <rect x="700" y="440" width="220" height="40" fill="#ffffff" stroke="none" opacity="0.9"/>
+  <text x="810" y="455" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">3. Hidden form loads</text>
+  <text x="810" y="472" text-anchor="middle" font-size="12" fill="#1e1e1e">Action: POST /transfer</text>
+
+  <rect x="330" y="340" width="260" height="40" fill="#ffffff" stroke="none" opacity="0.95"/>
+  <text x="460" y="355" text-anchor="middle" font-size="14" font-weight="bold" fill="#e67700">4. Form Auto-Submits!</text>
+  <text x="460" y="372" text-anchor="middle" font-size="12" fill="#1e1e1e">Browser automatically attaches Cookie</text>
+
+  <!-- The Solution Box (Bottom) -->
+  <rect x="150" y="680" width="700" height="80" rx="10" fill="#f8f9fa" stroke="#1e1e1e" stroke-width="2" filter="url(#rough)"/>
+  <text x="500" y="705" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e40af">The Senior Architecture Fix</text>
+  <text x="500" y="725" text-anchor="middle" font-size="14" fill="#1e1e1e">1. Use Anti-CSRF Tokens (Attacker can't guess the secret token).</text>
+  <text x="500" y="745" text-anchor="middle" font-size="14" fill="#1e1e1e">2. Use SameSite=Lax/Strict Cookies (Browser won't attach it to 3rd-party requests).</text>
+
+</svg>
