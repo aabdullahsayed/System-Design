@@ -38,3 +38,13 @@ ALLOW ACCESS IF:
 
 
 ![ABAC](./Diagrams/abac.svg)
+
+
+### ACL (Access Control List)
+
+- If your name is on the list, you get the permissions written to your name
+- If your name is not on the list, you are blocked
+
+![ABAC](./Diagrams/acl.svg)
+
+### 
