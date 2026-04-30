@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 750" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <!-- Background Dot Grid -->
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <!-- Sketchy Whiteboard Filter (Applied to shapes ONLY to keep text sharp) -->
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- Grid Background -->
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+  
+  <!-- Title -->
+  <text x="480" y="50" text-anchor="middle" font-size="28" font-weight="bold" fill="#1e1e1e">CORS: Cross-Origin Resource Sharing</text>
+  <text x="480" y="75" text-anchor="middle" font-size="16" fill="#495057">The Browser is the Bouncer. The Server must provide the Guest List.</text>
+
+  <!-- ================= SCENARIO 1: BLOCKED (No CORS Headers) ================= -->
+  
+  <text x="480" y="140" text-anchor="middle" font-size="20" font-weight="bold" fill="#c92a2a">Scenario A: The Blocked Request</text>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- Browser Box (Left) -->
+    <rect x="60" y="180" width="220" height="160" rx="12" fill="#f8f9fa" transform="rotate(-1 170 260)"/>
+    <!-- JS Engine Inner Box -->
+    <rect x="80" y="240" width="180" height="80" rx="8" fill="#ffec99" stroke-dasharray="6,4" stroke-width="2"/>
+    
+    <!-- API Server Box (Right) -->
+    <rect x="680" y="180" width="220" height="140" rx="12" fill="#a5d8ff" transform="rotate(1 790 250)"/>
+
+    <!-- Outgoing Request Arrow -->
+    <path d="M 280 220 L 680 220" stroke="#1e40af" stroke-width="3.5" />
+    <path d="M 660 208 L 685 220 L 660 232" fill="#1e40af" stroke="#1e40af"/>
+
+    <!-- Incoming Response Arrow -->
+    <path d="M 680 280 L 320 280" stroke="#c92a2a" stroke-width="3.5" stroke-dasharray="8,5" />
+    <path d="M 340 268 L 315 280 L 340 292" fill="#c92a2a" stroke="#c92a2a"/>
+
+    <!-- The Block Shield/Wall inside Browser -->
+    <line x1="285" y1="260" x2="285" y2="330" stroke="#c92a2a" stroke-width="6"/>
+  </g>
+
+  <!-- Scenario 1 Text -->
+  <text x="170" y="215" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e1e1e">Web Browser</text>
+  <text x="170" y="270" text-anchor="middle" font-size="16" font-weight="bold" fill="#e67700">app.com</text>
+  <text x="170" y="295" text-anchor="middle" font-size="14" fill="#c92a2a" font-weight="bold">JS Blocked!</text>
+
+  <text x="790" y="230" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e40af">API Server</text>
+  <text x="790" y="255" text-anchor="middle" font-size="16" fill="#1e1e1e">api.com</text>
+
+  <!-- Arrow Labels -->
+  <rect x="360" y="195" width="240" height="25" fill="#ffffff" stroke="none" opacity="0.9"/>
+  <text x="480" y="213" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">1. GET /data (Origin: app.com)</text>
+
+  <rect x="360" y="290" width="240" height="40" fill="#ffffff" stroke="none" opacity="0.9"/>
+  <text x="480" y="305" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">2. Returns 200 OK JSON Data</text>
+  <text x="480" y="322" text-anchor="middle" font-size="12" font-style="italic" fill="#c92a2a">(Missing CORS Headers)</text>
+
+  <!-- Divider -->
+  <line x1="100" y1="400" x2="860" y2="400" stroke="#dee2e6" stroke-width="3" stroke-dasharray="10,10" filter="url(#rough)"/>
+
+  <!-- ================= SCENARIO 2: ALLOWED (With CORS Headers) ================= -->
+
+  <text x="480" y="450" text-anchor="middle" font-size="20" font-weight="bold" fill="#087f5b">Scenario B: The Allowed Request</text>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- Browser Box (Left) -->
+    <rect x="60" y="490" width="220" height="160" rx="12" fill="#f8f9fa" transform="rotate(-0.5 170 570)"/>
+    <!-- JS Engine Inner Box -->
+    <rect x="80" y="550" width="180" height="80" rx="8" fill="#d3f9d8" stroke-dasharray="6,4" stroke-width="2"/>
+    
+    <!-- API Server Box (Right) -->
+    <rect x="680" y="490" width="220" height="140" rx="12" fill="#b2f2bb" transform="rotate(0.5 790 560)"/>
+
+    <!-- Outgoing Request Arrow -->
+    <path d="M 280 530 L 680 530" stroke="#1e40af" stroke-width="3.5" />
+    <path d="M 660 518 L 685 530 L 660 542" fill="#1e40af" stroke="#1e40af"/>
+
+    <!-- Incoming Response Arrow -->
+    <path d="M 680 590 L 260 590" stroke="#087f5b" stroke-width="3.5" stroke-dasharray="8,5" />
+    <path d="M 280 578 L 255 590 L 280 602" fill="#087f5b" stroke="#087f5b"/>
+  </g>
+
+  <!-- Scenario 2 Text -->
+  <text x="170" y="525" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e1e1e">Web Browser</text>
+  <text x="170" y="580" text-anchor="middle" font-size="16" font-weight="bold" fill="#087f5b">app.com</text>
+  <text x="170" y="605" text-anchor="middle" font-size="14" fill="#087f5b" font-weight="bold">Reads JSON Data!</text>
+
+  <text x="790" y="540" text-anchor="middle" font-size="20" font-weight="bold" fill="#087f5b">API Server</text>
+  <text x="790" y="565" text-anchor="middle" font-size="16" fill="#1e1e1e">api.com</text>
+
+  <!-- Arrow Labels -->
+  <rect x="360" y="505" width="240" height="25" fill="#ffffff" stroke="none" opacity="0.9"/>
+  <text x="480" y="523" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">1. GET /data (Origin: app.com)</text>
+
+  <rect x="330" y="600" width="300" height="40" fill="#ffffff" stroke="none" opacity="0.95"/>
+  <text x="480" y="615" text-anchor="middle" font-size="14" font-weight="bold" fill="#087f5b">2. Returns 200 OK JSON Data</text>
+  <text x="480" y="632" text-anchor="middle" font-size="13" font-family="monospace" font-weight="bold" fill="#087f5b">+ Access-Control-Allow-Origin: app.com</text>
+
+  <!-- Humorous Footer -->
+  <text x="480" y="710" text-anchor="middle" font-size="16" font-style="italic" fill="#adb5bd">"CORS: Because letting every random website on the internet read your logged-in banking tab is a bad idea."</text>
+
+</svg>

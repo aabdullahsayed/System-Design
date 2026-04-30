@@ -23,3 +23,11 @@ A full-blown DDoS attack can send 10,000 requests a second, overwhelming your da
 
 
 ![Rate Limiting](./Diagrams/rate.svg)
+
+
+### Cross-Origin Resource Sharing
+
+
+![CORS](./Diagrams/cors.svg)
+
+

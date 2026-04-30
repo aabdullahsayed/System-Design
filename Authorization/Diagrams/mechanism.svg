@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <!-- Background Dot Grid -->
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <!-- Sketchy Whiteboard Filter (Applied to shapes ONLY) -->
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- Grid Background -->
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+
+  <!-- Title -->
+  <text x="500" y="55" text-anchor="middle" font-size="30" font-weight="bold" fill="#1e1e1e">Authorization: Policies vs. Mechanisms</text>
+
+  <!-- ================= SHAPES ================= -->
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- LEFT PANEL: Internal Policies -->
+    <rect x="50" y="100" width="400" height="460" rx="15" fill="#f8f9fa" stroke-dasharray="10,5" transform="rotate(-0.5 250 330)"/>
+    
+    <!-- Policy Sub-boxes -->
+    <rect x="80" y="200" width="340" height="85" rx="10" fill="#a5d8ff" transform="rotate(1 250 240)"/>
+    <rect x="80" y="320" width="340" height="85" rx="10" fill="#b2f2bb" transform="rotate(-1 250 360)"/>
+    <rect x="80" y="440" width="340" height="85" rx="10" fill="#ffec99" transform="rotate(0.5 250 480)"/>
+
+    <!-- RIGHT PANEL: Runtime Mechanisms -->
+    <rect x="550" y="100" width="400" height="460" rx="15" fill="#f8f9fa" stroke-dasharray="10,5" transform="rotate(0.5 750 330)"/>
+    
+    <!-- Mechanism Sub-boxes -->
+    <rect x="580" y="200" width="340" height="130" rx="10" fill="#eebefa" transform="rotate(-1 750 260)"/>
+    <rect x="580" y="380" width="340" height="130" rx="10" fill="#ffc9c9" transform="rotate(1 750 440)"/>
+
+    <!-- ================= ARROWS ================= -->
+    <!-- Connection Arrow right to left -->
+    <path d="M 540 330 Q 500 280, 460 330" stroke="#087f5b" stroke-width="4" stroke-dasharray="8,5"/>
+    <path d="M 475 320 L 455 332 L 480 340" fill="#087f5b" stroke="#087f5b"/>
+
+    <!-- Flow Arrow left to right (Return) -->
+    <path d="M 460 380 Q 500 430, 540 380" stroke="#1e40af" stroke-width="4" />
+    <path d="M 525 390 L 545 378 L 520 370" fill="#1e40af" stroke="#1e40af"/>
+
+  </g>
+
+  <!-- ================= SHARP TEXT (No Filter) ================= -->
+
+  <!-- Left Panel Header -->
+  <text x="250" y="145" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e1e1e">Internal Policy Models</text>
+  <text x="250" y="170" text-anchor="middle" font-size="16" font-style="italic" fill="#495057">The "Brain" (Decides WHAT is allowed)</text>
+
+  <!-- RBAC Text -->
+  <text x="100" y="235" font-size="20" font-weight="bold" fill="#1e40af">RBAC</text>
+  <text x="175" y="232" font-size="14" fill="#1e1e1e">"Is this user in the Manager group?"</text>
+  <text x="175" y="255" font-size="13" font-style="italic" fill="#495057">(Role-Based Access Control)</text>
+
+  <!-- ABAC Text -->
+  <text x="100" y="355" font-size="20" font-weight="bold" fill="#087f5b">ABAC</text>
+  <text x="175" y="352" font-size="14" fill="#1e1e1e">"Are they on VPN AND is it 9:00 AM?"</text>
+  <text x="175" y="375" font-size="13" font-style="italic" fill="#495057">(Attribute-Based Access Control)</text>
+
+  <!-- ACL Text -->
+  <text x="100" y="475" font-size="20" font-weight="bold" fill="#e67700">ACL</text>
+  <text x="175" y="472" font-size="14" fill="#1e1e1e">"Is Alice's name on this file's list?"</text>
+  <text x="175" y="495" font-size="13" font-style="italic" fill="#495057">(Access Control List)</text>
+
+
+  <!-- Right Panel Header -->
+  <text x="750" y="145" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e1e1e">External Runtime Tools</text>
+  <text x="750" y="170" text-anchor="middle" font-size="16" font-style="italic" fill="#495057">The "Vehicle" (Proves HOW access is granted)</text>
+
+  <!-- OAuth2 Text -->
+  <text x="750" y="240" text-anchor="middle" font-size="22" font-weight="bold" fill="#862e9c">OAuth 2.0</text>
+  <text x="750" y="265" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e1e1e">The Delegation Process</text>
+  <text x="750" y="285" text-anchor="middle" font-size="14" fill="#495057">Grants a 3rd-party app a "Valet Key"</text>
+  <text x="750" y="305" text-anchor="middle" font-size="14" fill="#495057">without sharing the user's password.</text>
+
+  <!-- JWT Text -->
+  <text x="750" y="420" text-anchor="middle" font-size="22" font-weight="bold" fill="#c92a2a">JWT (JSON Web Token)</text>
+  <text x="750" y="445" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e1e1e">The Stateless Proof</text>
+  <text x="750" y="465" text-anchor="middle" font-size="14" fill="#495057">The physical "Wristband" that securely</text>
+  <text x="750" y="485" text-anchor="middle" font-size="14" fill="#495057">carries identity &amp; scopes across the web.</text>
+
+
+  <!-- Center Gap Text -->
+  <rect x="420" y="280" width="160" height="25" fill="#ffffff" stroke="none" opacity="0.9"/>
+  <text x="500" y="297" text-anchor="middle" font-size="12" font-weight="bold" fill="#087f5b">Presents Claims (Input)</text>
+
+  <rect x="420" y="400" width="160" height="25" fill="#ffffff" stroke="none" opacity="0.9"/>
+  <text x="500" y="417" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">Makes Decision (Output)</text>
+
+
+  <!-- Humorous Footer -->
+  <text x="500" y="630" text-anchor="middle" font-size="16" font-style="italic" fill="#adb5bd">"The JWT is the vehicle that drives the user to the API. The Policy is the bouncer waiting at the door."</text>
+
+</svg>
