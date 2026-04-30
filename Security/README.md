@@ -1,12 +1,5 @@
 # Security
 
-![Security](./security.svg)
-
-![Web Security](./web_security.svg)
-
----
-
-## 📝 Notes
 
 
 ## 7 Techniques to Protect Your APIs
