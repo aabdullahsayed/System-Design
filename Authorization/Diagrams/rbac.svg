@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <!-- Background Dot Grid -->
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <!-- Sketchy Whiteboard Filter (Applied to shapes, NOT text for clarity) -->
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- Grid Background -->
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+  
+  <!-- Title -->
+  <text x="480" y="55" text-anchor="middle" font-size="28" font-weight="bold" fill="#1e1e1e">Authorization: Role-Based Access Control (RBAC)</text>
+
+  <!-- ================= SHAPES (With Hand-Drawn Filter) ================= -->
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- The Resource: GitHub Repo -->
+    <rect x="680" y="200" width="200" height="200" rx="15" fill="#f8f9fa" transform="rotate(1 780 300)"/>
+    
+    <!-- User 1: Admin -->
+    <rect x="60" y="120" width="180" height="90" rx="12" fill="#ffc9c9" transform="rotate(-1 150 165)"/>
+    
+    <!-- User 2: Write -->
+    <rect x="60" y="255" width="180" height="90" rx="12" fill="#a5d8ff" transform="rotate(0.5 150 300)"/>
+    
+    <!-- User 3: Read -->
+    <rect x="60" y="390" width="180" height="90" rx="12" fill="#b2f2bb" transform="rotate(-0.5 150 435)"/>
+
+    <!-- ================= FLOW ARROWS ================= -->
+
+    <!-- Admin Arrow (Full Control) -->
+    <path d="M 250 165 Q 450 165, 660 250" stroke="#c92a2a" stroke-width="3.5" />
+    <path d="M 640 238 L 665 252 L 635 255" stroke="#c92a2a" stroke-width="3.5" fill="#c92a2a"/>
+
+    <!-- Writer Arrow (Write Access) -->
+    <path d="M 250 300 L 660 300" stroke="#1e40af" stroke-width="3.5" />
+    <path d="M 640 288 L 665 300 L 640 312" stroke="#1e40af" stroke-width="3.5" fill="#1e40af"/>
+
+    <!-- Reader Arrow (Read Access) -->
+    <path d="M 250 435 Q 450 435, 660 350" stroke="#087f5b" stroke-width="3.5" />
+    <path d="M 635 345 L 665 348 L 640 362" stroke="#087f5b" stroke-width="3.5" fill="#087f5b"/>
+  </g>
+
+  <!-- ================= SHARP TEXT (No Filter for Maximum Readability) ================= -->
+
+  <!-- Resource Text -->
+  <text x="780" y="295" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e1e1e">GitHub Repo</text>
+  <text x="780" y="320" text-anchor="middle" font-size="14" fill="#495057">(The Resource)</text>
+
+  <!-- User 1 Text -->
+  <text x="150" y="160" text-anchor="middle" font-size="20" font-weight="bold" fill="#c92a2a">User 1</text>
+  <text x="150" y="185" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e1e1e">Role: Admin</text>
+
+  <!-- User 2 Text -->
+  <text x="150" y="295" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e40af">User 2</text>
+  <text x="150" y="320" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e1e1e">Role: Writer</text>
+
+  <!-- User 3 Text -->
+  <text x="150" y="430" text-anchor="middle" font-size="20" font-weight="bold" fill="#087f5b">User 3</text>
+  <text x="150" y="455" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e1e1e">Role: Reader</text>
+
+  <!-- ================= ARROW LABELS (With solid background to hide lines) ================= -->
+
+  <!-- Admin Label -->
+  <rect x="360" y="170" width="200" height="50" fill="#ffffff" stroke="none" opacity="0.95"/>
+  <text x="460" y="195" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">Full Control:</text>
+  <text x="460" y="215" text-anchor="middle" font-size="14" fill="#1e1e1e">Read, Push, Delete, Settings</text>
+
+  <!-- Writer Label -->
+  <rect x="370" y="275" width="180" height="50" fill="#ffffff" stroke="none" opacity="0.95"/>
+  <text x="460" y="300" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">Write Access:</text>
+  <text x="460" y="320" text-anchor="middle" font-size="14" fill="#1e1e1e">Read &amp; Push Code</text>
+
+  <!-- Reader Label -->
+  <rect x="370" y="380" width="180" height="50" fill="#ffffff" stroke="none" opacity="0.95"/>
+  <text x="460" y="405" text-anchor="middle" font-size="14" font-weight="bold" fill="#087f5b">Read Access:</text>
+  <text x="460" y="425" text-anchor="middle" font-size="14" fill="#1e1e1e">Clone &amp; View Only</text>
+
+  <!-- Humorous Footer -->
+  <text x="480" y="550" text-anchor="middle" font-size="16" font-style="italic" fill="#adb5bd">"Authentication proves you work here. Authorization decides if you get the keys to the server room."</text>
+
+</svg>
