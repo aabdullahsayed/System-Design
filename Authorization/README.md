@@ -45,6 +45,22 @@ ALLOW ACCESS IF:
 - If your name is on the list, you get the permissions written to your name
 - If your name is not on the list, you are blocked
 
-![ABAC](./Diagrams/acl.svg)
+![ACL](./Diagrams/acl.svg)
 
-### 
+## OAuth2: Delgated Authorization
+
+![OAuth2](./Diagrams/oauth2.svg)
+
+
+
+
+## Token Based Authorization
+![Token](./Diagrams/token.svg)
+
+
+
+
+Tokens are just the mechanism. They don't make decisions.
+
+
+ACL, RBAC, and ABAC are the internal rules that decide what you are allowed to do, while OAuth2 and JWT are the secure transport mechanisms used to grant and prove those permissions across the internet.

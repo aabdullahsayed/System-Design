@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 850" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <!-- Background Dot Grid -->
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <!-- Sketchy Whiteboard Filter (Applied to shapes ONLY) -->
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- Grid Background -->
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+
+  <!-- ================= HEADER SECTION ================= -->
+  <text x="500" y="80" text-anchor="middle" font-size="36" font-weight="bold" fill="#1e1e1e">Token-Based Authorization</text>
+  <text x="500" y="120" text-anchor="middle" font-size="20" fill="#495057">JWT, Bearer Tokens, and Permission Logic</text>
+
+  <!-- ================= SHAPES (With Hand-Drawn Filter) ================= -->
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- User Node -->
+    <circle cx="200" cy="260" r="50" fill="#339af0" stroke-width="3" transform="rotate(-2 200 260)"/>
+    
+    <!-- JWT Node -->
+    <rect x="420" y="225" width="160" height="70" rx="10" fill="#fab005" stroke-width="3" transform="rotate(1 500 260)"/>
+    
+    <!-- Server Backend Node -->
+    <rect x="720" y="210" width="160" height="100" rx="15" fill="#e03131" stroke-width="3" transform="rotate(-1 800 260)"/>
+
+    <!-- JWT Contents Box (Dark Mode style like the original) -->
+    <rect x="180" y="420" width="640" height="180" rx="12" fill="#212529" stroke="#495057" stroke-width="3" transform="rotate(0.5 500 510)"/>
+
+    <!-- ================= ARROWS ================= -->
+
+    <!-- Arrow 1: User to JWT -->
+    <path d="M 265 260 Q 340 250, 400 260" stroke="#087f5b" stroke-width="4" />
+    <path d="M 380 248 L 405 260 L 380 272" fill="#087f5b" stroke="#087f5b"/>
+
+    <!-- Arrow 2: JWT to Server -->
+    <path d="M 595 260 Q 650 270, 700 260" stroke="#087f5b" stroke-width="4" />
+    <path d="M 680 248 L 705 260 L 680 272" fill="#087f5b" stroke="#087f5b"/>
+
+    <!-- Arrow 3: JWT down to Contents -->
+    <path d="M 500 310 L 500 380" stroke="#087f5b" stroke-width="5" />
+    <path d="M 485 365 L 500 385 L 515 365" fill="#087f5b" stroke="#087f5b"/>
+
+  </g>
+
+  <!-- ================= SHARP TEXT (No Filter) ================= -->
+
+  <!-- Node Labels -->
+  <text x="200" y="345" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e1e1e">User</text>
+  <text x="330" y="240" text-anchor="middle" font-size="16" font-weight="bold" fill="#087f5b">Request</text>
+  
+  <text x="500" y="255" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e1e1e">JWT</text>
+  <text x="500" y="275" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e1e1e">Bearer Token</text>
+
+  <text x="800" y="255" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Server</text>
+  <text x="800" y="280" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">Backend</text>
+
+  <!-- ================= JWT CONTENTS SECTION ================= -->
+  
+  <text x="500" y="465" text-anchor="middle" font-size="20" font-weight="bold" fill="#51cf66">JWT Token Contents</text>
+
+  <!-- Column 1 -->
+  <text x="220" y="515" font-size="18" font-weight="bold" fill="#51cf66">User ID:</text>
+  <text x="320" y="515" font-size="18" fill="#f8f9fa">user_123</text>
+
+  <text x="220" y="555" font-size="18" font-weight="bold" fill="#51cf66">Roles:</text>
+  <text x="320" y="555" font-size="18" fill="#f8f9fa">admin, editor</text>
+
+  <text x="220" y="595" font-size="18" font-weight="bold" fill="#51cf66">Scopes:</text>
+  <text x="320" y="595" font-size="18" fill="#f8f9fa">read:posts, write:posts</text>
+
+  <!-- Column 2 -->
+  <text x="600" y="515" font-size="18" font-weight="bold" fill="#51cf66">Expires:</text>
+  <text x="690" y="515" font-size="18" fill="#f8f9fa">24h</text>
+
+  <text x="600" y="555" font-size="18" font-weight="bold" fill="#51cf66">Issuer:</text>
+  <text x="690" y="555" font-size="18" fill="#f8f9fa">auth.example.com</text>
+
+  <!-- ================= KEY DISTINCTION SECTION (FOOTER) ================= -->
+
+  <text x="500" y="680" text-anchor="middle" font-size="24" font-weight="bold" fill="#2b8a3e">Key Distinction</text>
+  
+  <text x="500" y="720" text-anchor="middle" font-size="18" fill="#1e1e1e">Token carries identity and claims</text>
+  
+  <text x="500" y="750" text-anchor="middle" font-size="18" fill="#1e1e1e">Authorization model (RBAC/ABAC/ACL) defines what's allowed</text>
+  
+  <text x="500" y="780" text-anchor="middle" font-size="18" font-weight="bold" fill="#e67700">Tokens are just the mechanism. They don't make decisions - your backend does.</text>
+
+</svg>
