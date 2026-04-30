@@ -49,7 +49,7 @@ Layer 4 load balancing distributes traffic based on transport layer data like IP
 Federation, or functional partitioning, involves splitting a monolithic database into multiple databases based on function, such as separate databases for "users" and "products." This reduces read/write traffic and replication lag for each database while allowing more data to fit in memory for improved cache locality.
 
 
-![Database Federation](./Digrams/db_fed.svg)
+![Database Federation](./Diagrams/db_fed.svg)
 
 ---
 
