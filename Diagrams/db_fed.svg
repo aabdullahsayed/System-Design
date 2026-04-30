@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <!-- Background Dot Grid -->
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <!-- Sketchy Whiteboard Filter (Applied to shapes ONLY) -->
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- Grid Background -->
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+
+  <!-- ================= HEADER ================= -->
+  <text x="500" y="55" text-anchor="middle" font-size="30" font-weight="bold" fill="#1e1e1e">Database Federation (Functional Partitioning)</text>
+  <text x="500" y="85" text-anchor="middle" font-size="16" fill="#495057">Splitting a monolithic database into specialized databases by business domain.</text>
+
+  <!-- Divider -->
+  <line x1="500" y1="120" x2="500" y2="660" stroke="#dee2e6" stroke-width="3" stroke-dasharray="10,10" filter="url(#rough)"/>
+
+  <!-- ================= LEFT SIDE: THE MONOLITH ================= -->
+  
+  <text x="250" y="140" text-anchor="middle" font-size="24" font-weight="bold" fill="#c92a2a">Before: The Monolith</text>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- API Service -->
+    <rect x="150" y="180" width="200" height="70" rx="10" fill="#f1f3f5" transform="rotate(-1 250 215)"/>
+    
+    <!-- Heavy Traffic Arrow -->
+    <path d="M 250 250 L 250 330" stroke="#c92a2a" stroke-width="8" />
+    <path d="M 235 310 L 250 335 L 265 310" fill="#c92a2a" stroke="#c92a2a"/>
+
+    <!-- Monolithic DB Box -->
+    <rect x="120" y="340" width="260" height="220" rx="15" fill="#f8f9fa" transform="rotate(1 250 450)"/>
+    
+    <!-- Internal Tables -->
+    <rect x="150" y="370" width="200" height="40" rx="6" fill="#a5d8ff"/>
+    <rect x="150" y="430" width="200" height="40" rx="6" fill="#b2f2bb"/>
+    <rect x="150" y="490" width="200" height="40" rx="6" fill="#ffec99"/>
+  </g>
+
+  <!-- Left Side Text -->
+  <text x="250" y="222" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e1e1e">Application Server</text>
+
+  <text x="250" y="400" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e40af">Users Table</text>
+  <text x="250" y="460" text-anchor="middle" font-size="16" font-weight="bold" fill="#087f5b">Products Table</text>
+  <text x="250" y="520" text-anchor="middle" font-size="16" font-weight="bold" fill="#e67700">Orders Table</text>
+
+  <!-- Traffic Label Left -->
+  <rect x="290" y="260" width="130" height="45" fill="#ffffff" stroke="none" opacity="0.9"/>
+  <text x="355" y="278" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">Heavy Mixed</text>
+  <text x="355" y="295" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">Traffic</text>
+
+  <!-- Cons List Left -->
+  <text x="250" y="600" text-anchor="middle" font-size="16" font-weight="bold" fill="#c92a2a">The Bottleneck:</text>
+  <text x="250" y="620" text-anchor="middle" font-size="14" fill="#495057">1. Tables fight for RAM (Cache thrashing).</text>
+  <text x="250" y="640" text-anchor="middle" font-size="14" fill="#495057">2. High read/write replication lag.</text>
+  <text x="250" y="660" text-anchor="middle" font-size="14" fill="#495057">3. One crash takes down everything.</text>
+
+
+  <!-- ================= RIGHT SIDE: FEDERATION ================= -->
+
+  <text x="750" y="140" text-anchor="middle" font-size="24" font-weight="bold" fill="#087f5b">After: Functional Federation</text>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- API Service -->
+    <rect x="650" y="180" width="200" height="70" rx="10" fill="#f1f3f5" transform="rotate(0.5 750 215)"/>
+    
+    <!-- Traffic Arrows (Specialized) -->
+    <!-- To Users -->
+    <path d="M 670 250 Q 610 290, 610 330" stroke="#1e40af" stroke-width="3" />
+    <path d="M 600 318 L 610 332 L 620 318" fill="#1e40af" stroke="#1e40af"/>
+    
+    <!-- To Products -->
+    <path d="M 750 250 L 750 330" stroke="#087f5b" stroke-width="3" />
+    <path d="M 740 318 L 750 332 L 760 318" fill="#087f5b" stroke="#087f5b"/>
+
+    <!-- To Orders -->
+    <path d="M 830 250 Q 890 290, 890 330" stroke="#e67700" stroke-width="3" />
+    <path d="M 880 318 L 890 332 L 900 318" fill="#e67700" stroke="#e67700"/>
+
+    <!-- Federated DB Boxes -->
+    <rect x="550" y="340" width="120" height="150" rx="12" fill="#a5d8ff" transform="rotate(-1 610 415)"/>
+    <rect x="690" y="340" width="120" height="150" rx="12" fill="#b2f2bb" transform="rotate(1 750 415)"/>
+    <rect x="830" y="340" width="120" height="150" rx="12" fill="#ffec99" transform="rotate(-0.5 890 415)"/>
+
+    <!-- RAM Boxes representing better cache locality inside DBs -->
+    <rect x="570" y="440" width="80" height="30" rx="4" fill="#ffffff" stroke-dasharray="4,4"/>
+    <rect x="710" y="440" width="80" height="30" rx="4" fill="#ffffff" stroke-dasharray="4,4"/>
+    <rect x="850" y="440" width="80" height="30" rx="4" fill="#ffffff" stroke-dasharray="4,4"/>
+
+  </g>
+
+  <!-- Right Side Text -->
+  <text x="750" y="222" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e1e1e">Microservices / Router</text>
+
+  <!-- DB Labels -->
+  <text x="610" y="380" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e40af">Users</text>
+  <text x="610" y="405" text-anchor="middle" font-size="14" fill="#1e1e1e">Database</text>
+  <text x="610" y="460" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e1e1e">In RAM!</text>
+
+  <text x="750" y="380" text-anchor="middle" font-size="18" font-weight="bold" fill="#087f5b">Products</text>
+  <text x="750" y="405" text-anchor="middle" font-size="14" fill="#1e1e1e">Database</text>
+  <text x="750" y="460" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e1e1e">In RAM!</text>
+
+  <text x="890" y="380" text-anchor="middle" font-size="18" font-weight="bold" fill="#e67700">Orders</text>
+  <text x="890" y="405" text-anchor="middle" font-size="14" fill="#1e1e1e">Database</text>
+  <text x="890" y="460" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e1e1e">In RAM!</text>
+
+  <!-- Pros List Right -->
+  <text x="750" y="600" text-anchor="middle" font-size="16" font-weight="bold" fill="#087f5b">The Solution:</text>
+  <text x="750" y="620" text-anchor="middle" font-size="14" fill="#495057">1. Smaller datasets fit entirely in memory.</text>
+  <text x="750" y="640" text-anchor="middle" font-size="14" fill="#495057">2. Traffic and replication lag is isolated.</text>
+  <text x="750" y="660" text-anchor="middle" font-size="14" fill="#495057">3. Hardware scales independently per domain.</text>
+
+  <!-- Humorous Footer -->
+  <text x="500" y="725" text-anchor="middle" font-size="16" font-style="italic" fill="#adb5bd">"Federation: Because making the HR department and the shipping warehouse share the same filing cabinet is a terrible idea."</text>
+
+</svg>
