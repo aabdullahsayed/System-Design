@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 950" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <!-- Background Dot Grid -->
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <!-- Sketchy Whiteboard Filter (Applied to shapes ONLY to keep text crisp) -->
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- Grid Background -->
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+
+  <!-- ================= TITLE SECTION ================= -->
+  <text x="550" y="50" text-anchor="middle" font-size="32" font-weight="bold" fill="#1e1e1e">JSON Web Token (JWT) Anatomy</text>
+  <text x="550" y="80" text-anchor="middle" font-size="16" fill="#495057">It is Signed, not Encrypted. Anyone can read it, but nobody can forge it.</text>
+
+  <!-- ================= TOP SECTION: THE FLOW ================= -->
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    
+    <!-- Client Box -->
+    <rect x="130" y="140" width="160" height="120" rx="12" fill="#f8f9fa" transform="rotate(-1 210 200)"/>
+    
+    <!-- Server Box -->
+    <rect x="810" y="140" width="160" height="180" rx="12" fill="#a5d8ff" transform="rotate(1 890 230)"/>
+    
+    <!-- Server's Secret Key (Kept safe inside Server) -->
+    <rect x="830" y="260" width="120" height="40" rx="6" fill="#ffec99" stroke-dasharray="4,4"/>
+
+    <!-- Flow Arrows -->
+    <!-- 1. Login -->
+    <path d="M 290 160 Q 550 130, 800 160" stroke="#862e9c" stroke-width="3.5" />
+    <path d="M 780 148 L 805 160 L 780 172" fill="#862e9c" stroke="#862e9c"/>
+
+    <!-- 2. Return JWT -->
+    <path d="M 800 200 Q 550 230, 300 200" stroke="#862e9c" stroke-width="3.5" stroke-dasharray="8,5" />
+    <path d="M 320 212 L 295 200 L 320 188" fill="#862e9c" stroke="#862e9c"/>
+
+    <!-- 3. API Request with JWT -->
+    <path d="M 300 250 Q 550 290, 800 250" stroke="#087f5b" stroke-width="3.5" />
+    <path d="M 780 238 L 805 250 L 780 262" fill="#087f5b" stroke="#087f5b"/>
+  </g>
+
+  <!-- Flow Text -->
+  <text x="210" y="200" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e1e1e">Client</text>
+  <text x="210" y="225" text-anchor="middle" font-size="14" fill="#495057">Stores Token</text>
+
+  <text x="890" y="190" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e40af">API Server</text>
+  <text x="890" y="285" text-anchor="middle" font-size="14" font-weight="bold" fill="#e67700">SECRET_KEY</text>
+
+  <!-- Arrow Labels (With white background blocks) -->
+  <rect x="470" y="130" width="160" height="25" fill="#ffffff" stroke="none" opacity="0.9"/>
+  <text x="550" y="148" text-anchor="middle" font-size="13" font-weight="bold" fill="#862e9c">1. POST /login (Creds)</text>
+
+  <rect x="410" y="195" width="280" height="25" fill="#ffffff" stroke="none" opacity="0.9"/>
+  <text x="550" y="213" text-anchor="middle" font-size="13" font-weight="bold" fill="#862e9c">2. Generates JWT using SECRET_KEY</text>
+
+  <rect x="430" y="275" width="240" height="40" fill="#ffffff" stroke="none" opacity="0.95"/>
+  <text x="550" y="290" text-anchor="middle" font-size="13" font-weight="bold" fill="#087f5b">3. Request + Bearer JWT</text>
+  <text x="550" y="307" text-anchor="middle" font-size="12" font-style="italic" fill="#087f5b">Server verifies signature mathematically!</text>
+
+  <!-- ================= DIVIDER ================= -->
+  <line x1="100" y1="360" x2="1000" y2="360" stroke="#dee2e6" stroke-width="3" stroke-dasharray="10,10" filter="url(#rough)"/>
+
+  <!-- ================= BOTTOM SECTION: JWT ANATOMY ================= -->
+  <text x="550" y="400" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e1e1e">The 3 Parts of a JWT</text>
+
+  <!-- The Actual Token String (Stacked for readability) -->
+  <rect x="200" y="420" width="700" height="110" rx="10" fill="#f8f9fa" stroke="#adb5bd" stroke-width="2" filter="url(#rough)"/>
+  
+  <text x="550" y="455" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#c92a2a">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.</text>
+  <text x="550" y="485" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#862e9c">eyJzdWIiOiIxMjMiLCJyb2xlIjoiYWRtaW4ifQ.</text>
+  <text x="550" y="515" text-anchor="middle" font-size="20" font-family="monospace" font-weight="bold" fill="#1e40af">SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</text>
+
+  <!-- Connection Lines down to explanation boxes -->
+  <g stroke-width="3" stroke-dasharray="6,4" fill="none" opacity="0.6">
+    <path d="M 250 530 L 250 560" stroke="#c92a2a"/>
+    <path d="M 550 530 L 550 560" stroke="#862e9c"/>
+    <path d="M 850 530 L 850 560" stroke="#1e40af"/>
+  </g>
+
+  <!-- Explanatory Boxes -->
+  <g filter="url(#rough)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Header Box -->
+    <rect x="120" y="560" width="260" height="190" rx="10" fill="#fff5f5" stroke="#c92a2a" transform="rotate(-1 250 655)"/>
+    
+    <!-- Payload Box -->
+    <rect x="420" y="560" width="260" height="190" rx="10" fill="#f3d9fa" stroke="#862e9c"/>
+    
+    <!-- Signature Box -->
+    <rect x="720" y="560" width="260" height="190" rx="10" fill="#e7f5ff" stroke="#1e40af" transform="rotate(1 850 655)"/>
+  </g>
+
+  <!-- Header Text -->
+  <text x="250" y="595" text-anchor="middle" font-size="20" font-weight="bold" fill="#c92a2a">1. Header</text>
+  <text x="250" y="625" text-anchor="middle" font-size="14" font-family="monospace" fill="#1e1e1e">{</text>
+  <text x="250" y="645" text-anchor="middle" font-size="14" font-family="monospace" fill="#1e1e1e">  "alg": "HS256",</text>
+  <text x="250" y="665" text-anchor="middle" font-size="14" font-family="monospace" fill="#1e1e1e">  "typ": "JWT"</text>
+  <text x="250" y="685" text-anchor="middle" font-size="14" font-family="monospace" fill="#1e1e1e">}</text>
+
+  <!-- Payload Text -->
+  <text x="550" y="595" text-anchor="middle" font-size="20" font-weight="bold" fill="#862e9c">2. Payload (Claims)</text>
+  <text x="550" y="625" text-anchor="middle" font-size="14" font-family="monospace" fill="#1e1e1e">{</text>
+  <text x="550" y="645" text-anchor="middle" font-size="14" font-family="monospace" fill="#1e1e1e">  "sub": "123",</text>
+  <text x="550" y="665" text-anchor="middle" font-size="14" font-family="monospace" fill="#1e1e1e">  "role": "admin"</text>
+  <text x="550" y="685" text-anchor="middle" font-size="14" font-family="monospace" fill="#1e1e1e">}</text>
+  <text x="550" y="720" text-anchor="middle" font-size="12" font-weight="bold" fill="#c92a2a">NOT ENCRYPTED! VISIBLE TO ALL!</text>
+
+  <!-- Signature Text -->
+  <text x="850" y="595" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e40af">3. Signature</text>
+  <text x="850" y="620" text-anchor="middle" font-size="12" fill="#495057">Created by the server using math:</text>
+  
+  <text x="850" y="650" text-anchor="middle" font-size="13" font-family="monospace" font-weight="bold" fill="#1e1e1e">HMACSHA256(</text>
+  <text x="850" y="670" text-anchor="middle" font-size="12" font-family="monospace" fill="#1e1e1e">  base64(Header) + "." +</text>
+  <text x="850" y="690" text-anchor="middle" font-size="12" font-family="monospace" fill="#1e1e1e">  base64(Payload),</text>
+  <text x="850" y="710" text-anchor="middle" font-size="13" font-family="monospace" font-weight="bold" fill="#e67700">  SECRET_KEY</text>
+  <text x="850" y="730" text-anchor="middle" font-size="13" font-family="monospace" font-weight="bold" fill="#1e1e1e">)</text>
+
+  <!-- The "Tamper" Warning Note -->
+  <rect x="300" y="790" width="500" height="60" fill="#fff3cd" stroke="#f08c00" stroke-width="2" rx="8" filter="url(#rough)"/>
+  <text x="550" y="815" text-anchor="middle" font-size="14" font-weight="bold" fill="#e67700">The Magic Trick:</text>
+  <text x="550" y="835" text-anchor="middle" font-size="13" fill="#1e1e1e">If a hacker changes "role":"admin", the Signature will no longer match!</text>
+
+  <!-- Humorous Footer -->
+  <text x="550" y="900" text-anchor="middle" font-size="14" font-style="italic" fill="#adb5bd">"JWTs: Giving users a note from their mom, signed with cryptographically secure unforgeable ink."</text>
+
+</svg>

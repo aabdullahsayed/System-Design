@@ -67,3 +67,8 @@ Refresh Tokens - Lives Longer
 Identity Protocols Define how apps securely exchange user info
 
 ![sso](./Diagrams/sso.svg)
+
+
+## JWT
+
+![jwt](./jwt.svg)
