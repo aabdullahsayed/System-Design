@@ -71,4 +71,4 @@ Identity Protocols Define how apps securely exchange user info
 
 ## JWT
 
-![jwt](./jwt.svg)
+![jwt](./Diagrams/jwt.svg)
