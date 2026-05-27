@@ -42,6 +42,8 @@ base64 encoded: Simple encoding that's easily reversible
 
 ![Bearer Token Authentication](./Diagrams/bearer.svg)
 
+<a href="https://blog.postman.com/what-is-a-bearer-token/"> What is bearer token?</a>
+
 
 Bearer<access_token>
 
