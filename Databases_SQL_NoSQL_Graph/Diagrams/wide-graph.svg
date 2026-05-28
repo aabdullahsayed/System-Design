@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%" style="background-color: #ffffff; font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;">
+  <defs>
+    <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle fill="#ced4da" cx="2" cy="2" r="1.5"></circle>
+    </pattern>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+
+  <text x="500" y="55" text-anchor="middle" font-size="30" font-weight="bold" fill="#1e1e1e">NoSQL Architecture: Wide Column vs. Graph</text>
+  <text x="500" y="85" text-anchor="middle" font-size="16" fill="#495057">Optimizing for either horizontal linear scaling or interconnected relationship indexing.</text>
+
+  <line x1="500" y1="130" x2="500" y2="650" stroke="#dee2e6" stroke-width="3" stroke-dasharray="10,10" filter="url(#rough)"/>
+
+  <text x="250" y="145" text-anchor="middle" font-size="24" font-weight="bold" fill="#1e40af">Wide Column Store (e.g., Cassandra)</text>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    <rect x="60" y="180" width="380" height="340" rx="15" fill="#e7f5ff" transform="rotate(-0.5 250 350)"/>
+    
+    <rect x="80" y="240" width="340" height="100" rx="8" fill="#ffffff" stroke="#1e40af" stroke-width="2"/>
+    <rect x="80" y="360" width="340" height="100" rx="8" fill="#ffffff" stroke="#1e40af" stroke-width="2"/>
+  </g>
+
+  <text x="95" y="270" font-family="monospace" font-size="15" font-weight="bold" fill="#1e40af">RowKey: user_101</text>
+  
+  <rect x="95" y="285" width="95" height="40" rx="4" fill="#d0ebff" stroke="#228be6" stroke-width="1.5" filter="url(#rough)"/>
+  <text x="142" y="303" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#1e40af">name</text>
+  <text x="142" y="318" text-anchor="middle" font-family="monospace" font-size="11" fill="#1e1e1e">"Alice"</text>
+
+  <rect x="200" y="285" width="95" height="40" rx="4" fill="#d0ebff" stroke="#228be6" stroke-width="1.5" filter="url(#rough)"/>
+  <text x="247" y="303" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#1e40af">email</text>
+  <text x="247" y="318" text-anchor="middle" font-family="monospace" font-size="10" fill="#1e1e1e">a@test.com</text>
+
+  <rect x="305" y="285" width="105" height="40" rx="4" fill="#d0ebff" stroke="#228be6" stroke-width="1.5" filter="url(#rough)"/>
+  <text x="357" y="303" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#1e40af">age</text>
+  <text x="357" y="318" text-anchor="middle" font-family="monospace" font-size="11" fill="#1e1e1e">28</text>
+
+  <text x="95" y="390" font-family="monospace" font-size="15" font-weight="bold" fill="#1e40af">RowKey: user_102</text>
+  
+  <rect x="95" y="405" width="95" height="40" rx="4" fill="#d0ebff" stroke="#228be6" stroke-width="1.5" filter="url(#rough)"/>
+  <text x="142" y="423" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#1e40af">name</text>
+  <text x="142" y="438" text-anchor="middle" font-family="monospace" font-size="11" fill="#1e1e1e">"Bob"</text>
+
+  <rect x="200" y="405" width="125" height="40" rx="4" fill="#d0ebff" stroke="#228be6" stroke-width="1.5" filter="url(#rough)"/>
+  <text x="262" y="423" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#1e40af">twitter_handle</text>
+  <text x="262" y="438" text-anchor="middle" font-family="monospace" font-size="11" fill="#1e1e1e">"@bob_dev"</text>
+
+  <text x="250" y="560" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e1e1e">How it works:</text>
+  <text x="250" y="585" text-anchor="middle" font-size="14" fill="#495057">Data is organized in rows with thousands of dynamic columns.</text>
+  <text x="250" y="610" text-anchor="middle" font-size="14" fill="#495057">Rows are spread seamlessly across multiple clusters/nodes.</text>
+  <text x="250" y="635" text-anchor="middle" font-size="14" fill="#495057">Optimized for insanely fast, distributed append-only <tspan font-weight="bold" fill="#1e40af">writes</tspan>.</text>
+
+
+  <text x="750" y="145" text-anchor="middle" font-size="24" font-weight="bold" fill="#862e9c">Graph Database (e.g., Neo4j)</text>
+
+  <g filter="url(#rough)" stroke="#1e1e1e" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    <rect x="560" y="180" width="380" height="340" rx="15" fill="#f3d9fa" transform="rotate(0.5 750 350)"/>
+    
+    <circle cx="650" cy="260" r="35" fill="#e83e8c" stroke="#c92a2a"/>
+    <circle cx="850" cy="260" r="35" fill="#e83e8c" stroke="#c92a2a"/>
+    <circle cx="750" cy="420" r="35" fill="#cc5de8" stroke="#862e9c"/>
+
+    <path d="M 685 260 L 815 260" stroke="#1e1e1e" stroke-width="2.5"/>
+    <path d="M 800 252 L 815 260 L 800 268" fill="#1e1e1e" stroke="#1e1e1e"/>
+
+    <path d="M 675 285 L 725 395" stroke="#1e1e1e" stroke-width="2.5"/>
+    <path d="M 712 380 L 725 395 L 725 375" fill="#1e1e1e" stroke="#1e1e1e"/>
+
+    <path d="M 825 285 L 775 395" stroke="#1e1e1e" stroke-width="2.5"/>
+    <path d="M 775 375 L 775 395 L 788 380" fill="#1e1e1e" stroke="#1e1e1e"/>
+  </g>
+
+  <text x="650" y="265" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">User A</text>
+  <text x="850" y="265" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">User B</text>
+  <text x="750" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">Product X</text>
+
+  <text x="750" y="250" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">FRIENDS_WITH</text>
+  <text x="660" y="340" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">BOUGHT</text>
+  <text x="840" y="340" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">VIEWED</text>
+
+  <text x="750" y="560" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e1e1e">How it works:</text>
+  <text x="750" y="585" text-anchor="middle" font-size="14" fill="#495057">Data treats connections (edges) as first-class citizens.</text>
+  <text x="750" y="610" text-anchor="middle" font-size="14" fill="#495057">Queries navigate graphs via pointer hopping, not table scans.</text>
+  <text x="750" y="635" text-anchor="middle" font-size="14" fill="#495057">Perfect for complex networks like <tspan font-weight="bold" fill="#862e9c">social graphs</tspan> or engines.</text>
+
+  <text x="500" y="690" text-anchor="middle" font-size="14" font-style="italic" fill="#adb5bd">"Cassandra files records across a continuous city-sized wall of drawers. Neo4j strings red yarn between pictures to map a conspiracy."</text>
+
+</svg>
