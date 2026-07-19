@@ -5,7 +5,7 @@ Check off each day as you complete it.
 
 ## Week 1 — Foundations
 
-- [ x ] [Day 1: What Communication Actually Is](day-01.md)
+- [x] [Day 1: What Communication Actually Is](day-01.md)
 - [ ] [Day 2: Active Listening](day-02.md)
 - [ ] [Day 3: Clarity & Conciseness](day-03.md)
 - [ ] [Day 4: Nonverbal Communication & Body Language](day-04.md)
