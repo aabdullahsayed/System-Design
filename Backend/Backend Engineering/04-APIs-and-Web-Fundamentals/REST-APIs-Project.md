@@ -9,36 +9,36 @@ Build a RESTful API for a library system that handles books and their user revie
 ### 1. Books Management (`/api/books`)
 
 * **List Books**: `GET /api/books`
-* Should return a `200 OK` with a list of books.
-* **Support Query Parameters**:
-* Filtering by genre: `?genre=Fiction`
-* Search by title: `?search=clean`
-* Pagination: `?page=1&pageSize=10`
+Should return a `200 OK` with a list of books.
+ **Support Query Parameters**:
+ Filtering by genre: `?genre=Fiction`
+ Search by title: `?search=clean`
+ Pagination: `?page=1&pageSize=10`
 
 
 
 
 * **Get Single Book**: `GET /api/books/{id}`
-* Return `200 OK` with the book details.
-* Return `404 Not Found` with a standard error body if the ID doesn't exist.
+ Return `200 OK` with the book details.
+ Return `404 Not Found` with a standard error body if the ID doesn't exist.
 
 
 * **Create Book**: `POST /api/books`
-* Accepts book details in the request body (e.g., `Title`, `Author`, `Genre`, `PublishYear`).
-* Validate inputs (e.g., `Title` and `Author` are required). Return `400 Bad Request` on invalid data.
-* Return `201 Created` with a `Location` header pointing to `GET /api/books/{id}`.
+ Accepts book details in the request body (e.g., `Title`, `Author`, `Genre`, `PublishYear`).
+ Validate inputs (e.g., `Title` and `Author` are required). Return `400 Bad Request` on invalid data.
+ Return `201 Created` with a `Location` header pointing to `GET /api/books/{id}`.
 
 
 * **Update Book (Full)**: `PUT /api/books/{id}`
-* Replaces the book entity entirely. Return `204 No Content` on success or `404 Not Found`.
+ Replaces the book entity entirely. Return `204 No Content` on success or `404 Not Found`.
 
 
 * **Update Book (Partial)**: `PATCH /api/books/{id}`
-* Partially updates fields (e.g., updating just the `Genre`).
+ Partially updates fields (e.g., updating just the `Genre`).
 
 
 * **Delete Book**: `DELETE /api/books/{id}`
-* Remove the book. Return `204 No Content` on success or `404 Not Found`.
+ Remove the book. Return `204 No Content` on success or `404 Not Found`.
 
 
 
@@ -47,18 +47,18 @@ Build a RESTful API for a library system that handles books and their user revie
 ### 2. Nested Resource: Book Reviews (`/api/books/{bookId}/reviews`)
 
 * **List Reviews for a Book**: `GET /api/books/{bookId}/reviews`
-* Returns all reviews belonging to a specific book.
+ Returns all reviews belonging to a specific book.
 
 
 * **Add a Review**: `POST /api/books/{bookId}/reviews`
-* Accepts `Rating` (1–5) and `Comment`.
-* Return `201 Created` with the newly created review object.
+ Accepts `Rating` (1–5) and `Comment`.
+ Return `201 Created` with the newly created review object.
 
 
 
 ---
 
-## 📋 Recommended Data Models
+##  Recommended Data Models
 
 ```csharp
 public class Book
